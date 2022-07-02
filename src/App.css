@@ -1,14 +1,6 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+.App{
+  background : #051b40;
+  color: white;
+  min-height  : 100vh;
 }
 
-a{
-  text-decoration: none;
-  color: gold;
-}
-:root{
-  --Gold-color:gold;
-}

@@ -1,0 +1,37 @@
+
+.banner {
+    background-image: "url(./banner.jpg)",
+  }
+.bannerContent {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding-top:25px;
+    justify-content: space-around
+  }
+
+  .tagline {
+    display: flex;
+    height: 40%; 
+    flex-direction: column;
+    justify-content: center;
+    text-align: center
+  }
+  .carousel{
+    height: 50%;
+    display: flex;
+    align-items: center;
+  }
+  .bannertitle{
+    font-weight:800;
+    margin-bottom:15;
+    font-family:Montserrat;
+    font-size: 60px;
+  }
+  .bannertitle2{
+      color: darkgrey;
+      text-transform: capitalize;
+      font-family: Montserrat;
+      padding: 4px;
+    
+  }
