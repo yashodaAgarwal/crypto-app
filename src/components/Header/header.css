@@ -2,8 +2,9 @@
     flex: 1;
     color: white;
     font-family: Montserrat;
-    font-weight: bolder;
+    font-weight: 600;
     cursor: pointer;
+    font-size: 24px;
   }
 .currency{
   width: 100px; 

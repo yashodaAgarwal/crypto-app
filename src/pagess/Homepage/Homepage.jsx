@@ -1,10 +1,11 @@
 import React from 'react'
-import { Banner } from '../../components'
+import { Banner, CoinsTable } from '../../components'
 
 const Homepage = () => {
   return (
     <>
     <Banner/>
+    <CoinsTable/>
     </>
   )
 }

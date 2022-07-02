@@ -1,0 +1,17 @@
+.tablecontainer{
+    text-align: center;
+}
+.tabletitle{
+    margin: 18px;
+    font-family: Montserrat;
+    font-size: 32px;
+}
+
+.row{
+   background-color: #051b40;
+    cursor:pointer;
+    font-family: Montserrat;
+  }
+  .row:hover{
+    background-color:#052355;
+  }

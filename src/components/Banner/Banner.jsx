@@ -14,7 +14,7 @@ function Banner() {
     <div className={classes.banner}>
       <Container className="bannerContent">
         <div className="tagline">
-          <h2 className="bannertitle">Crypto Hunter</h2>
+          <h2 className="bannertitle">Crypto Coins</h2>
           <p className="bannertitle2">
             Get all the Info regarding your favorite Crypto Currency
           </p>
