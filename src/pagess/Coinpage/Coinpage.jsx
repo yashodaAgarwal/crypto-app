@@ -7,7 +7,7 @@ import ReactHtmlParser from "react-html-parser";
 import "./coinpage.css";
 import { numberWithCommas } from "../../components/Carousel/Carousel";
 import { useCrypto } from "../../context/Crytocontext";
-import {CoinInfo} from "../../components"
+
 
 const Coinpage = () => {
   const { id } = useParams();
@@ -31,14 +31,14 @@ const Coinpage = () => {
           src={coin?.image.large}
           alt={coin?.name}
           height="200"
-          style={{ marginBottom: 20 }}
+          style={{ margin: 20  }}
         />
         <Typography variant="h3" className="heading">
           {coin?.name}
         </Typography>
-        <Typography variant="subtitle1" className="description">
-          {ReactHtmlParser(coin?.description.en.split(". ")[0])}
-        </Typography>
+        <p className="description">
+          {ReactHtmlParser(coin?.description.en.split(".")[0])}
+        </p>
         <div className="marketData">
           <span style={{ display: "flex" }}>
             <Typography variant="h5" className="heading">
@@ -97,7 +97,6 @@ const Coinpage = () => {
           </span>
         </div>
       </div>
-      {/* <CoinInfo coin={coin}/> */}
     </div>
   );
 };
