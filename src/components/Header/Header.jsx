@@ -4,7 +4,6 @@ import {
   MenuItem,
   Select,
   Toolbar,
-  Typography,
 } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import React from "react";
@@ -29,13 +28,12 @@ const Header = () => {
       <AppBar color="transparent" position="static">
         <Container>
           <Toolbar>
-            <Typography
+            <h5
               onClick={() => navigate(`/`)}
-              variant="h5"
               className="title"
             >
-              Crypto Hunter
-            </Typography>
+              Crypto Coins
+            </h5>
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"

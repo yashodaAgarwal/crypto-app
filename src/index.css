@@ -7,8 +7,6 @@
 }
 a{
   text-decoration: none;
-  color: gold;
+  color:none;
 }
-:root{
-  --Gold-color:gold;
-}
+
