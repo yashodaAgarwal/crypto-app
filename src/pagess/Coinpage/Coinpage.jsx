@@ -24,6 +24,7 @@ const Coinpage = () => {
 
   const addToWatchlist = async () => {
     const coinRef = doc(db, "watchlist", user.uid);
+    console.log(coinRef)
     try {
       await setDoc(
         coinRef,
@@ -145,6 +146,9 @@ const Coinpage = () => {
               M
             </Typography>
           </span>
+          </div>
+          <div className="marketData">
+          <span style={{ display: "flex" }}>
           {user && (
             <Button
               variant="outlined"
@@ -158,6 +162,7 @@ const Coinpage = () => {
               {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
             </Button>
           )}
+          </span>
         </div>
       </div>
     </div>
@@ -165,3 +170,5 @@ const Coinpage = () => {
 };
 
 export default Coinpage;
+
+

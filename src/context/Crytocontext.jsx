@@ -3,7 +3,7 @@ import axios from "axios";
 import { CoinList } from "../config/api";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { doc} from "firebase/firestore";
+import { onSnapshot, doc } from "firebase/firestore";
 
 
 
@@ -22,23 +22,23 @@ const CryptoProvider = ({ children }) => {
     })
     const [watchlist, setWatchlist] = useState([]);
 
-    // useEffect(() => {
-    //   if (user) {
-    //     const coinRef = doc(db, "watchlist", user?.uid);
-    //     var unsubscribe = onSnapshot(coinRef, (coin) => {
-    //       if (coin.exists()) {
-    //         console.log(coin.data().coins);
-    //         setWatchlist(coin.data().coins);
-    //       } else {
-    //         console.log("No Items in Watchlist");
-    //       }
-    //     });
+    useEffect(() => {
+      if (user) {
+        const coinRef = doc(db, "watchlist", user?.uid);
+        var unsubscribe = onSnapshot(coinRef, (coin) => {
+          if (coin.exists()) {
+            console.log(coin.data().coins);
+            setWatchlist(coin.data().coins);
+          } else {
+            console.log("No Items in Watchlist");
+          }
+        });
   
-    //     return () => {
-    //       unsubscribe();
-    //     };
-    //   }
-    // }, [user]);
+        return () => {
+          unsubscribe();
+        };
+      }
+    }, [user]);
   
     useEffect(() => {
       onAuthStateChanged(auth, (user) => {
@@ -60,7 +60,7 @@ const CryptoProvider = ({ children }) => {
       else if (currency === "USD") setSymbol("$");
     }, [currency]);
   return (
-    <CryptoContext.Provider value={{currency,setCurrency,symbol,coins,loading,fetchCoins,alert,setAlert,user}}>
+    <CryptoContext.Provider value={{currency,setCurrency,symbol,coins,loading,fetchCoins,alert,setAlert,user,watchlist}}>
       {children}
     </CryptoContext.Provider>
   );

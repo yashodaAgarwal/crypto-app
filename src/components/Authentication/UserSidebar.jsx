@@ -7,7 +7,9 @@ import { auth, db } from "../../firebase";
 import { AiFillDelete } from "react-icons/ai";
 import { useCrypto } from "../../context/Crytocontext";
 import { numberWithCommas } from "../Carousel/Carousel";
-// import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+
+
 
 const useStyles = makeStyles({
   container: {
@@ -97,26 +99,26 @@ export default function UserSidebar() {
   };
 
   const removeFromWatchlist = async (coin) => {
-    // const coinRef = doc(db, "watchlist", user.uid);
-    // try {
-    //   await setDoc(
-    //     coinRef,
-    //     { coins: watchlist.filter((wish) => wish !== coin?.id) },
-    //     { merge: true }
-    //   );
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { merge: true }
+      );
 
-    //   setAlert({
-    //     open: true,
-    //     message: `${coin.name} Removed from the Watchlist !`,
-    //     type: "success",
-    //   });
-    // } catch (error) {
-    //   setAlert({
-    //     open: true,
-    //     message: error.message,
-    //     type: "error",
-    //   });
-    // }
+      setAlert({
+        open: true,
+        message: `${coin.name} Removed from the Watchlist !`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
   };
 
   return (
@@ -162,11 +164,12 @@ export default function UserSidebar() {
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
                     Watchlist
                   </span>
-                  {/* {coins.map((coin) => {
+                  {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
                         <div className={classes.coin}>
                           <span>{coin.name}</span>
+                          {console.log(coin )}
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}
                             {numberWithCommas(coin.current_price.toFixed(2))}
@@ -179,7 +182,7 @@ export default function UserSidebar() {
                         </div>
                       );
                     else return <></>;
-                  })} */}
+                  })}
                 </div>
               </div>
               <Button
