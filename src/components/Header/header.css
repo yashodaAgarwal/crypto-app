@@ -1,0 +1,12 @@
+.title {
+    flex: 1;
+    color: white;
+    font-family: Montserrat;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+.currency{
+  width: 100px; 
+  height: 40px; 
+  margin-left: 15
+}
