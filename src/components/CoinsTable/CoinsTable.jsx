@@ -15,27 +15,19 @@ import {
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 import "./coinsTable.css";
-import axios from "axios";
-import { CoinList } from "../../config/api";
 import { useCrypto } from "../../context/Crytocontext";
 import { numberWithCommas } from "../Carousel/Carousel";
 import { useNavigate } from "react-router-dom";
 
 const CoinsTable = () => {
-  const { currency, symbol } = useCrypto();
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { currency, symbol,coins,loading,fetchCoins } = useCrypto();
+ 
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
 
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    setCoins(data);
-    setLoading(false);
-  };
+  
   useEffect(() => {
     fetchCoins();
     // eslint-disable-next-line
@@ -169,7 +161,6 @@ const CoinsTable = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          //   classes={{ ul: classes.pagination }}
           onChange={(_, value) => {
             setPage(value);
             window.scroll(0, 450);

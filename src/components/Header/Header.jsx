@@ -9,6 +9,8 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCrypto } from "../../context/Crytocontext";
+import AuthModal from "../Authentication/AuthModal";
+import UserSidebar from "../Authentication/UserSidebar";
 import "./header.css";
 
 const darkTheme = createTheme({
@@ -21,7 +23,7 @@ const darkTheme = createTheme({
 });
 
 const Header = () => {
-  const { currency, setCurrency } = useCrypto();
+  const { currency, setCurrency,user } = useCrypto();
   const navigate = useNavigate();
   return (
     <ThemeProvider theme={darkTheme}>
@@ -45,6 +47,7 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+            {user ? <UserSidebar /> : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>
