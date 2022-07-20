@@ -1,6 +1,6 @@
 import { Routes,Route } from 'react-router-dom';
 import { Coinpage, Homepage } from './pagess';
-import { Header } from './components';
+import { Alert, Header } from './components';
 import './App.css';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/coins/:id" element={<Coinpage/>}/>
       </Routes>
+      <Alert/>
     </div>
   );
 }
